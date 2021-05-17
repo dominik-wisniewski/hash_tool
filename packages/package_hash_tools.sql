@@ -4,7 +4,7 @@ as
     -- for native Oracle hashing functions (supported by dbms_crypto.hash)
     function get_ora_hash(
         pv_input in varchar2
-        , pv_hash_algorithm in varchar2 default dbms_crypto.HASH_SH256 -- as for dbms_crypto.hash function
+        , pv_hash_algorithm in number default dbms_crypto.HASH_SH256 -- as for dbms_crypto.hash function
         , pv_salt in varchar2
     )
     return varchar2;
