@@ -13,7 +13,7 @@ as
     end;
 
     function get_pbkdf2_hash (
-        pv_password in varchar2
+        pv_input in varchar2
         , pv_salt in varchar2
         , pn_iterations in number
         , pn_hash_function in number default dbms_crypto.hmac_sh256
@@ -59,7 +59,7 @@ as
     end;
 
     function get_argon2_hash(
-        pv_password in varchar2
+        pv_input in varchar2
         , pv_salt in varchar2
         , pn_Ops_Limit number 
         , pn_Mem_Limit number 
