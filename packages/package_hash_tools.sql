@@ -11,7 +11,7 @@ as
 
     -- PBKDF2 PL/SQL implmenetation
     function get_pbkdf2_hash (
-        pv_password in varchar2
+        pv_input in varchar2
         , pv_salt in varchar2
         , pn_iterations in number
         , pn_hash_function in number default dbms_crypto.hmac_sh256 -- as for dbms_crypto.hmac function  
@@ -21,7 +21,7 @@ as
 
     -- Argon2 java implementation
     function get_argon2_hash(
-        pv_password in varchar2
+        pv_input in varchar2
         , pv_salt in varchar2
         , pn_ops_limit number 
         , pn_mem_limit number 
