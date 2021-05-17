@@ -3,13 +3,13 @@ as
 
     function get_ora_hash(
         pv_input in varchar2
-        , pv_hash_algorithm in varchar2 default dbms_crypto.HASH_SH256
+        , pv_hash_algorithm in number default dbms_crypto.HASH_SH256
         , pv_salt in varchar2
     )
     return varchar2
     is
     begin
-        return null;
+        return return dbms_crypto.hash(utl_raw.cast_to_raw(pv_input || pv_salt), pv_hash_algorithm);
     end;
 
     function get_pbkdf2_hash (
