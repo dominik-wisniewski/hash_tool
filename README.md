@@ -25,11 +25,13 @@ execute dbms_java.grant_permission( :user, 'SYS:java.lang.RuntimePermission', 'c
 
 grant execute on dbms_crypto to :user;
 
-Since loadjava tool will be used, appropriate default tablespace and its quota should be set as CREATE$JAVA$LOB$TABLE table is created during java loading (for testing purposed we can grant unlimited tablespace)
+Since loadjava tool will be used, appropriate default tablespace and its quota should be set as CREATE$JAVA$LOB$TABLE table is created during java loading (for testing purposes we can grant unlimited tablespace)
 
 2. Loadjava
 
-loadjava -user {user}/{password}@{connection_string} -resolve bcprov-jdk15to18-168.jar <br>
+{bouncy_castle_prov} = jar file of latest relase of Bouncy Castle provider (https://www.bouncycastle.org/latest_releases.html) 
+
+loadjava -user {user}/{password}@{connection_string} -resolve {bouncy_castle_prov} <br>
 loadjava -user {user}/{password}@{connection_string} -resolve hashGenerator.jar
 
 
