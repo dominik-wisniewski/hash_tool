@@ -1,4 +1,4 @@
-# ora_hash
+# hash_tool
 PL/SQL wrapper for hash functions
 
 
