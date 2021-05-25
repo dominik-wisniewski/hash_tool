@@ -1,5 +1,5 @@
 # hash_tool
-PL/SQL wrapper for hash functions
+Simple PL/SQL wrapper for hash functions that includes DBMS_CRYPTO hash functions (with salt parameter added for convenience), Argon2, Bcrypt, PBKDF2 algorithms
 
 
 Dependencies:
@@ -32,9 +32,9 @@ Since loadjava tool will be used, appropriate default tablespace and its quota s
 {bouncy_castle_prov} = jar file of latest relase of Bouncy Castle provider (https://www.bouncycastle.org/latest_releases.html) 
 
 loadjava -user {user}/{password}@{connection_string} -resolve {bouncy_castle_prov} <br>
-loadjava -user {user}/{password}@{connection_string} -resolve hashGenerator.jar
+loadjava -user {user}/{password}@{connection_string} -resolve HashGenerator.jar
 
 
-3. Package installation
+3. PL/SQL package installation
 
-TODO
+Should be obvious :)
