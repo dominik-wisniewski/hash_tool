@@ -19,14 +19,24 @@ as
         , pn_block_size in number -- 20 bytes for SHA1, 32 for SHA256, 64 for SHA512 etc.
     ) return varchar2;
 
-    -- Argon2 java implementation
+    -- Argon2 java implementation (bouncy castle api)
+    -- returns Base64 encoded value
     function get_argon2_hash(
         pv_input in varchar2
         , pv_salt in varchar2
-        , pn_ops_limit number 
-        , pn_mem_limit number 
-        , pn_output_length number
-        , pn_parallelism number 
+        , pn_ops_limit in number 
+        , pn_mem_limit in number 
+        , pn_output_length in number
+        , pn_parallelism in number 
+    ) return varchar2;
+    
+    
+    -- bcrypt java implementation (bouncy castle api)
+    -- returns Base64 encoded value
+    function get_bcrypt_hash(
+        pv_input in varchar2 -- up to 72 bytes
+        , pv_salt in varchar2 -- 128 bit required
+        , pn_cost_factor in number -- 4..31
     ) return varchar2;
 
 end;
