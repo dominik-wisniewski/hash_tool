@@ -67,5 +67,22 @@ as
         , pn_Parallelism number 
     ) return varchar2 AS
     language java name 'hash/Argon2Generator.generateArgon2id (java.lang.String, java.lang.String, int, int, int, int) return java.lang.String';
+    
+    function get_argon2_hash(
+        pv_input in varchar2
+        , pv_salt in varchar2
+        , pn_Ops_Limit number 
+        , pn_Mem_Limit number 
+        , pn_Output_Length number
+        , pn_Parallelism number 
+    ) return varchar2 as
+    language java name 'hash/HashGenerator.generateArgon2id (java.lang.String, java.lang.String, int, int, int, int) return java.lang.String';
+    
+    function get_bcrypt_hash(
+        pv_input in varchar2
+        , pv_salt in varchar2
+        , pn_cost_factor in number
+    ) return varchar2 as
+    language java name 'hash/HashGenerator.generateBcrypt (java.lang.String, java.lang.String, int) return java.lang.String';
 
 end;
